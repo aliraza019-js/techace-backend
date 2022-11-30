@@ -8,6 +8,7 @@ use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use JeroenDesloovere\VCard\VCard;
 
 class AuthController extends Controller
 {
@@ -63,5 +64,21 @@ class AuthController extends Controller
         $user->data      = $data;
         $user->save();
         return response()->json($user->data);
+    }
+
+    public function downloadVCF(Request $request){
+
+        $vcard = new VCard();
+
+    $vcard->addName($request->name);
+    $vcard->addCompany($request->company);
+    $vcard->addJobtitle($request->jobtitle);
+    $vcard->addEmail($request->email);
+    $vcard->addPhoneNumber($request->phone , 'WORK');
+    $vcard->addAddress($request->address);
+    
+    return $vcard->download();
+
+
     }
 }

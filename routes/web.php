@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use JeroenDesloovere\VCard\VCard;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('form');
 });
+
+Route::post('/download-vcf', [App\Http\Controllers\AuthController::class, 'downloadVCF'])->name('download-vcf');
+
