@@ -76,8 +76,9 @@ class AuthController extends Controller
     $vcard->addEmail($request->email);
     $vcard->addPhoneNumber($request->phone , 'WORK');
     $vcard->addAddress($request->address);
-    
-    return $vcard->download();
+    $file = $vcard->getOutput();
+    $base_64 = base64_encode($file);
+    return $base_64;
 
 
     }
