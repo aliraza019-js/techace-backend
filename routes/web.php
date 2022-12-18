@@ -20,4 +20,3 @@ Route::get('/', function () {
 });
 
 Route::post('/download-vcf', [App\Http\Controllers\AuthController::class, 'downloadVCF'])->name('download-vcf');
-

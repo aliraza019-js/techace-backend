@@ -20,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::post('/user/register', [AuthController::class, 'registerUser']);
 Route::post('/user/login', [AuthController::class, 'userLogin']);
-Route::post('user/download-vcf', [AuthController::class, 'downloadVCF']);
+Route::post('/upload-image',[AuthController::class, 'uploadImage']);
 Route::get('/user/details/{user_name}', [AuthController::class, 'userDetails']);
 Route::put('/user/update/{id}', [AuthController::class, 'updateUser']);
 
