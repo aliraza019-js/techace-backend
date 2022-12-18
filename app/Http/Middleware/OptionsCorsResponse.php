@@ -35,4 +35,5 @@ class OptionsCorsResponse
         ];
         return $response->withHeaders($headers);
     }
+    //options
 }
